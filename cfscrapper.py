@@ -27,8 +27,8 @@ links = section[0].find_all('tr')
 
 lastrownos=len(links)
 
-print(num)
-print(lastrownos)
+#print(num)
+#print(lastrownos)
 cnt=(num-1)*50 + lastrownos-1
 pbar=pyprind.ProgBar(cnt)
 for j in xrange(1,num+1):
