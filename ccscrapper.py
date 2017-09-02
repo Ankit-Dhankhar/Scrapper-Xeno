@@ -12,8 +12,12 @@ plain_text = source.text
 soup =BeautifulSoup(plain_text,"lxml")
 section = soup.findAll('section',{'class':'rating-data-section problems-solved'})
 links = section[0].find_all('a')
+num=len(links)
+pbar=pyprind.ProgBar(num)
+
 for link in links:
 	try:
+		pbar.update()
 		link_url=base+ link['href']
 		name = link.string
 		link_url=link_url+"?sort_by=All&sorting_order=asc&language=All&status=15&Submit=GO" 
