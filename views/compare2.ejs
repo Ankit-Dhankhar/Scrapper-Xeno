@@ -100,33 +100,28 @@
 #footer a {
     color: inherit;
 }</style>
-<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
 
     <div class="container">
     	<div class="row">
     	    <div class="col-xs-12">
         	    <div class="form-wrap">
                 
-                    <h1>SCRAPPER XENO</h1><form role="form" action="javascript:;" id="myForm" autocomplete="off">
-                
-  User name: <input type="text" name="fname" placeholder="CodeChefUser"><br>
-  User name: <input type="text" name="lname" placeholder ="CodeForcesUser"><br>
+                    <h1>SCRAPPER XENO</h1>
+                 <form method="post" action="/com2">
+  User name: <input type="text" name="u1name" placeholder="User1"><br>
+  User name: <input type="text" name="u2name" placeholder ="User2"><br>
 
-</form> 
-                        <form method="post" action="/compare">
+                     
                         <div class="checkbox">
                         <input type="checkbox" name="codechef" value="CodeChefUser" id ="1"> CodeChef<br>
                            
                           <input type="checkbox" name="codeforces" value="CodeForcesUser" id="2"> CodeForces<br>
                         </div>
-                        
-                       <button onclick="ccuser()" href="#">Enter</button>
-                        <button type = "submit">Compare Users</button>
-                      
-                       </form>
-                       <form method = "post" action ="/analyse2">
-                       <button type = "submit">Analyse Users(only 2 allowed)</button>
-                       </form>
+                       
+                       <button type = "submit">Analyse</button>
+                            </form>
+                       
                     
                     <hr>
         	    </div>
@@ -134,26 +129,6 @@
     	</div> <!-- /.row -->
     </div> <!-- /.container -->
 </section><!-- /.modal -->
-<script>
-const socket = io();
 
-
-function ccuser(){
-var xbool = document.getElementById('1').checked;
-var ybool = document.getElementById('2').checked;
-var x=''
-var y=''
-if(xbool===true)
- x = document.getElementById("myForm").elements[0].value; 
-if(ybool===true)
- y =document.getElementById("myForm").elements[1].value;
- socket.emit('ccvalue',{
-    ccuser:x,cfuser:y
-
- });
-
-}
-
-</script>
 
 </body></html>
