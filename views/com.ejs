@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <style>
+    
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100);
+
+body {
+  background-color: #3e94ec;
+  font-family: "Roboto", helvetica, arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+div.table-title {
+   display: block;
+  margin: auto;
+  max-width: 600px;
+  padding:5px;
+  width: 100%;
+}
+
+.table-title h3 {
+   color: #fafafa;
+   font-size: 30px;
+   font-weight: 400;
+   font-style:normal;
+   font-family: "Roboto", helvetica, arial, sans-serif;
+   text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+   text-transform:uppercase;
+}
+
+
+/*** Table Styles **/
+
+.table-fill {
+  background: white;
+  border-radius:3px;
+  border-collapse: collapse;
+  height: 320px;
+  margin: auto;
+  max-width: 600px;
+  padding:5px;
+  width: 100%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  animation: float 5s infinite;
+}
+ 
+th {
+  color:#D5DDE5;;
+  background:#1b1e24;
+  border-bottom:4px solid #9ea7af;
+  border-right: 1px solid #343a45;
+  font-size:23px;
+  font-weight: 100;
+  padding:24px;
+  text-align:left;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  vertical-align:middle;
+}
+
+th:first-child {
+  border-top-left-radius:3px;
+}
+ 
+th:last-child {
+  border-top-right-radius:3px;
+  border-right:none;
+}
+  
+tr {
+  border-top: 1px solid #C1C3D1;
+  border-bottom-: 1px solid #C1C3D1;
+  color:#666B85;
+  font-size:16px;
+  font-weight:normal;
+  text-shadow: 0 1px 1px rgba(256, 256, 256, 0.1);
+}
+ 
+tr:hover td {
+  background:#4E5066;
+  color:#FFFFFF;
+  border-top: 1px solid #22262e;
+}
+ 
+tr:first-child {
+  border-top:none;
+}
+
+tr:last-child {
+  border-bottom:none;
+}
+ 
+tr:nth-child(odd) td {
+  background:#EBEBEB;
+}
+ 
+tr:nth-child(odd):hover td {
+  background:#4E5066;
+}
+
+tr:last-child td:first-child {
+  border-bottom-left-radius:3px;
+}
+ 
+tr:last-child td:last-child {
+  border-bottom-right-radius:3px;
+}
+ 
+td {
+  background:#FFFFFF;
+  padding:20px;
+  text-align:left;
+  vertical-align:middle;
+  font-weight:300;
+  font-size:18px;
+  text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+  border-right: 1px solid #C1C3D1;
+}
+
+td:last-child {
+  border-right: 0px;
+}
+
+th.text-left {
+  text-align: left;
+}
+
+th.text-center {
+  text-align: center;
+}
+
+th.text-right {
+  text-align: right;
+}
+
+td.text-left {
+  text-align: left;
+}
+
+td.text-center {
+  text-align: center;
+}
+
+td.text-right {
+  text-align: right;
+}
+
+    </style>
+   <div style="margin:80px 0px 0px 200px;font-size:60px" ><%= data[0].title %></div>
+  </head>
+  <body>
+         <div class="dropdown" style="visibility:hidden;>
+  <button class="dropbtn" style="margin-left:700px;">Enter Here</button>
+  <div id="myDropdown" style="margin-left:700px;" class="dropdown-content">
+
+    <a href="#">Add more users to compare..</a>
+  </div>
+</div>
+        <div id = "option" style="visibility:hidden;"><%= data %></div>
+    <div id="donutchart" style="width: 900px; height: 500px;">
+  
+    </div>
+     <script type="text/javascript">
+ 
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+  
+      function drawChart() {
+             var opt = document.getElementById('option')
+    var op = String(opt.innerHTML);
+  var dat=<%- JSON.stringify(data) %>;
+   /* var dat = [{title:"CodeForces",user:"Balance_Breaker",userarray:['435','36','25','634']}] */
+   console.log(dat)
+      var dataarr = [];
+      dataarr.push(['Users', 'Problems Solved']);
+   
+     var arr = []
+   var b = [];     
+   for(var i=0;i<Object.keys(dat).length;i++){
+    arr.push(dat[i].user)
+     b.push(dat[i].userarray.length)
+     }
+     
+   
+   for ( i =0;i<Object.keys(arr).length;i++)
+   { dataarr.push([arr[i],b[i]])
+   var drop = document.getElementById('myDropdown')
+   
+   var a = document.createElement('a');
+var linkText = document.createTextNode(arr[i]);
+a.appendChild(linkText);
+a.title = "votes:"+b[i];
+a.href = "#";
+drop.appendChild(a);
+}
+var data = google.visualization.arrayToDataTable(dataarr);
+
+        var options = {
+          title: '',
+          pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+        chart.draw(data, options);
+      }
+    </script>
+    <div class="table-title">
+<h3>Data Table</h3>
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">User</th>
+<th class="text-left">Problems List</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+<% for(var i=0;i<data.length;i++) { %>
+<tr>
+<td class="text-left"><%= data[i].user %></td>
+<td class="text-left"><%= data[i].userarray %></td>
+</tr>
+<% } %>
+</tbody>
+</table>
+  </body>
+</html>
