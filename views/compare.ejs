@@ -1,0 +1,374 @@
+<html>
+<head>
+</head>
+<body>
+<style>
+/********* Fonts **********/
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url('../fonts/Roboto-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Roboto-Medium.ttf') format('truetype');
+}
+
+/****** Main Styling ******/
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  color: #00BCD4;
+  height: 56px;
+  margin: 0 0 14px 0;
+  text-align: center;
+}
+
+p {
+  margin: 8px 0 0 0;
+}
+
+.container p {
+  text-align: center;
+  padding: 0;
+}
+
+/****** Header Styling ******/
+
+header p {
+  margin: 16px 0 5px 0;
+}
+
+.menu {
+  text-decoration: none;
+  padding: 6px;
+  margin: 0;
+  color: #727272;
+}
+
+.menu:visited {
+  color: #727272;
+}
+
+.menu:hover {
+  color: #FFA000;
+}
+
+.menu:active {
+  color: #FF630D;
+}
+
+header a ~ p {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  color: #ECEFF1;
+}
+
+#display-name {
+  font-weight: 400;
+}
+
+/****** Login Styling ******/
+
+.login {
+  margin: 86px auto 0 auto;
+  text-align: center;
+}
+
+#login-btn {
+  width: 225px;
+  padding: 7px 5px;
+}
+
+.btn p {
+  margin: 8px 0 0 0;
+  padding: 0;
+}
+
+.btn > img {
+  float: left;
+  margin-left: 10px
+}
+
+/****** Logo Div Styling ******/
+
+img {
+  margin: 0 auto;
+  display: block;
+}
+
+.clementine-text { /* Styling for the Clementine.js text */
+  padding: 0;
+  margin: -25px 0 0 0;
+  font-weight: 500;
+  font-size: 60px;
+  color: #FFA000;
+}
+
+/****** Click Styling ******/
+
+.btn-container {  /* Styling for the div that contains the buttons */
+  margin: -10px auto 0 auto;
+  text-align: center;
+}
+
+.btn {  /* Styling for buttons */
+  margin: 0 8px;
+  color: white;
+  background-color: #00BCD4;
+  display: inline-block;
+  border: 0;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 10px 5px;
+  width: 100px;
+  font-weight: 500;
+}
+
+.btn:focus {  /* Remove outline when hovering over button */
+  outline: none;
+}
+
+.btn:active { /* Scale the button down by 10% when clicking on button */
+  transform: scale(0.9, 0.9);
+  -webkit-transform: scale(0.9, 0.9);
+  -moz-transform: scale(0.9, 0.9);
+}
+
+.btn-delete { /* Styling for delete button */
+  background-color: #ECEFF1;
+  color: #212121;
+}
+
+#click-nbr {
+  font-weight: 400;
+}
+
+/****** Profile Styling ******/
+
+.github-profile {
+  width: 350px;
+  height: 200px;
+  border-radius: 3px;
+  margin: 86px auto 0 auto;
+  background-color: #EEE;
+  text-align: center;
+  color: #000;
+}
+
+.github-profile p:first-child {
+  padding-top: 16px;
+}
+
+.github-profile p:nth-child(5) {
+  margin-bottom: 16px
+}
+
+.github-profile p {
+  margin: 0 0 0 16px;
+  text-align: left;
+}
+
+.profile-value {
+  font-weight: 400;
+}
+
+span {
+  font-weight: 500;
+}
+
+.github-profile > img {
+  padding-top: 16px;
+  margin-bottom: 16px;
+}
+
+.github-profile .menu:hover {
+  color: #FFA000;
+}
+
+.github-profile .menu:active {
+  color: #FF630D;
+}
+
+#menu-divide {
+  color: #FFFFFF;
+  display: inline;
+  margin: 0;
+}
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background: #4CAF50;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 12px/16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#contact {
+  background: #F9F9F9;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  background: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
+}
+
+#contact button[type="submit"] {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+#contact button[type="submit"]:hover {
+  background: #43A047;
+  -webkit-transition: background 0.3s ease-in-out;
+  -moz-transition: background 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active {
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.copyright {
+  text-align: center;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  outline: 0;
+  border: 1px solid #aaa;
+}
+
+::-webkit-input-placeholder {
+  color: #888;
+}
+
+:-moz-placeholder {
+  color: #888;
+}
+
+::-moz-placeholder {
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  color: #888;
+}
+</style>
+  
+    
+      <div class="container">  
+  <form id="contact" action="/com" method="post">
+    <h3>COMPARE USERS</h3>
+
+    <fieldset>
+      <input placeholder="CodeChef or CodeForces" id ="poll_title" type="text" name ="title" tabindex="1" required autofocus>
+    </fieldset>
+    <fieldset>
+      <textarea id = "poll_options" name = "options" cols="50" rows="10" placeholder="Users(separated by line)"required></textarea>
+
+    </fieldset>
+   <button type ="submit" >COMPARE</button>
+   
+  </form>
+</div>
+    
+</body>
+</html>
