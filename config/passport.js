@@ -52,7 +52,7 @@ var subject = 'Take Your Authentication Password';
 var content = new helper.Content('text/plain', String(password));
 var mail = new helper.Mail(fromEmail, subject, toEmail, content);
  
-var sg = require('sendgrid')('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');
+var sg = require('sendgrid')('Your sendgrid API key');
 var request = sg.emptyRequest({
   method: 'POST',
   path: '/v3/mail/send',
